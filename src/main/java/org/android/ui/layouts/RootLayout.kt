@@ -22,7 +22,7 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
 
         onSetup() // Setup
         setContent { // Layout Content
-            RouterProvider {
+            RouterProvider(metadata.startPage) {
                 val router = useRouter()
                 Layout {
                     router.Current()
