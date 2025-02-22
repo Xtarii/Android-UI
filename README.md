@@ -150,3 +150,29 @@ Some components have margin and padding so elements position have a bit more fle
 And Metadata is provided to the RootLayout. If there is no metadata a default set is used.
 The metadata is used to provide some Layout metadata for RootLayout, and to change settings for the
 application use the ```override fun onSetup() {}``` from RootLayout.
+
+
+
+
+
+### Examples
+```java
+/// Underline Title
+
+
+
+// Without Android UI
+Text("Title", fontSize = 24.sp, color = Color.White,
+    modifier = Modifier.drawBehind {
+        drawLine(
+            color = Color.White,
+            start = Offset(0f, size.height),
+            end = Offset(size.width, size.height),
+            strokeWidth = 2f
+        )
+    }
+)
+
+// With Android UI
+Typography("Title", type = TextType.TITLE, style = Style(underline = true))
+```

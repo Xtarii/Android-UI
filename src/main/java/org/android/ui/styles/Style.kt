@@ -50,6 +50,15 @@ data class Style (
      */
     val border: BorderStroke? = null,
     /**
+     * Component Border Size
+     */
+    val borderSize: Float = 2f,
+    /**
+     * Component Underline
+     */
+    val underline: Boolean = false,
+
+    /**
      * Component Shadow
      */
     val shadow: Shadows = Shadows()
