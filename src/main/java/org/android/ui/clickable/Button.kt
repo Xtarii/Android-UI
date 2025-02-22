@@ -2,7 +2,6 @@ package org.android.ui.clickable
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Button as Bt
@@ -14,6 +13,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.android.ui.styles.Style
+import org.android.ui.styles.theme.useTheme
 
 /**
  * Button Style Type
@@ -41,19 +41,25 @@ enum class ButtonType {
  * Button Component
  */
 @Composable
-fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, style: Style = Style(), elevation: ButtonElevation = ButtonDefaults.buttonElevation(), disabled: Boolean = false, children: @Composable RowScope.() -> Unit = {}) {
+fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, color: String = "primary", style: Style = Style(padding = ButtonDefaults.ContentPadding), disabled: Boolean = false, children: @Composable () -> Unit = {}) {
+    val theme = useTheme() // Gets Theme
+    val mainColor = theme.getColor(color)
+    val contentColor = theme.getColor("text")
+
     // Button style data
     val modifier: Modifier = if(type == ButtonType.CONTAINED) Modifier.shadow(style.shadow.elevation, shape = style.shadow.shape)
     else Modifier
     val border: BorderStroke? = if(type == ButtonType.OUTLINED) BorderStroke(1.dp, style.backgroundColor)
     else style.border
     val colors: ButtonColors = if(type == ButtonType.TEXT || type == ButtonType.OUTLINED) ButtonColors(
-        Color.Transparent, style.color,
-        Color.Transparent, style.color.copy(alpha = .3f)
+        Color.Transparent, contentColor,
+        Color.Transparent, contentColor.copy(alpha = .3f)
     ) else ButtonColors(
-        style.backgroundColor, style.color,
-        style.backgroundColor.copy(alpha = .3f), style.color.copy(alpha = .3f)
+        mainColor, contentColor,
+        mainColor.copy(alpha = .3f), contentColor.copy(alpha = .3f)
     )
+    val elevation: ButtonElevation = if(type == ButtonType.CONTAINED || type == ButtonType.OUTLINED) ButtonDefaults.buttonElevation()
+    else ButtonDefaults.buttonElevation(0.dp, 0.dp, 0.dp, 0.dp, 0.dp)
 
 
 
