@@ -20,11 +20,11 @@ import androidx.compose.runtime.setValue
  * many different pages.
  */
 @Stable
-class Router {
+class Router(start: @Composable () -> Unit) {
     /**
      * Current Router Page
      */
-    private var _current by mutableStateOf<(@Composable () -> Unit)>({})
+    private var _current by mutableStateOf<(@Composable () -> Unit)>(start)
 
     /**
      * Current Router Page
@@ -50,7 +50,7 @@ class Router {
 /**
  * Local Router Context
  */
-val localRouter = compositionLocalOf<Router> {
+private val localRouter = compositionLocalOf<Router> {
     error("No router provided for the current context. Use RouterProvider to use the router.")
 }
 
@@ -68,8 +68,8 @@ val localRouter = compositionLocalOf<Router> {
  * other components.
  */
 @Composable
-fun RouterProvider(children: @Composable () -> Unit) {
-    val router = remember { Router() }
+fun RouterProvider(start: @Composable () -> Unit, children: @Composable () -> Unit) {
+    val router = remember { Router(start) }
     CompositionLocalProvider(localRouter provides router) {
         children()
     }
