@@ -49,7 +49,7 @@ fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, co
     // Button style data
     val modifier: Modifier = if(type == ButtonType.CONTAINED) Modifier.shadow(style.shadow.elevation, shape = style.shadow.shape)
     else Modifier
-    val border: BorderStroke? = if(type == ButtonType.OUTLINED) BorderStroke(1.dp, style.backgroundColor)
+    val border: BorderStroke? = if(type == ButtonType.OUTLINED) BorderStroke(style.borderSize.dp, mainColor)
     else style.border
     val colors: ButtonColors = if(type == ButtonType.TEXT || type == ButtonType.OUTLINED) ButtonColors(
         Color.Transparent, contentColor,
