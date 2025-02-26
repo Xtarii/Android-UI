@@ -94,6 +94,7 @@ could be nice to set the colors wanted.
 The provided colors are:
 - primary
 - success
+- background : For other components such as cards, not the application background
 
 - text
 - dark text
