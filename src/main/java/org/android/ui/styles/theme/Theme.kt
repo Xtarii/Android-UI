@@ -63,6 +63,10 @@ data class Theme (
             lightColor = Color(0xFFA4E86D),
             darkColor = Color(0xFF6E9E2F)
         ))
+        put("background", ThemeColorSet(
+            lightColor = Color(0xFFCBCBCB),
+            darkColor = Color(0xFF423F3F)
+        ))
 
 
         // Text Colors
