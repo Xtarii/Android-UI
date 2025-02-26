@@ -1,5 +1,6 @@
 package org.android.ui.layouts
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
@@ -7,7 +8,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.core.view.WindowCompat
+import org.android.ui.backend.hooks.ActivityEvent
+import org.android.ui.backend.hooks.ActivityEventsManager
 import org.android.ui.backend.meta.Meta
+import org.android.ui.backend.router.ActivityProvider
 import org.android.ui.backend.router.RouterProvider
 import org.android.ui.backend.router.useRouter
 
@@ -22,10 +26,12 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
 
         onSetup() // Setup
         setContent { // Layout Content
-            RouterProvider(metadata.startPage) {
-                val router = useRouter()
-                Layout {
-                    router.Current()
+            ActivityProvider(this@RootLayout) {
+                RouterProvider(metadata.startPage) {
+                    val router = useRouter()
+                    Layout {
+                        router.Current()
+                    }
                 }
             }
         }
@@ -68,5 +74,24 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         or View.SYSTEM_UI_FLAG_FULLSCREEN
                 )
+    }
+
+
+
+
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        ActivityEventsManager.broadcast(ActivityEvent.CONFIGURATION, newConfig)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ActivityEventsManager.broadcast(ActivityEvent.RESUME, Unit)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        ActivityEventsManager.broadcast(ActivityEvent.PAUSE, Unit)
     }
 }
