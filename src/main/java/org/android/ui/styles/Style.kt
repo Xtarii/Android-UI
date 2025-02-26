@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.android.ui.styles.shadows.Shadows
 
@@ -34,7 +35,15 @@ data class Style (
     /**
      * Component Shape
      */
-    val shape: Shape = RoundedCornerShape(5.dp),
+    val shape: Shape = RoundedCornerShape(15.dp),
+    /**
+     * Component Width
+     */
+    val width: Dp = 0.dp,
+    /**
+     * Component Height
+     */
+    val height: Dp = 0.dp,
 
     /**
      * Component Alignment
@@ -61,5 +70,10 @@ data class Style (
     /**
      * Component Shadow
      */
-    val shadow: Shadows = Shadows()
+    val shadow: Shadows = Shadows(),
+
+    /**
+     * Component Text Size
+     */
+    val textSize: Float = 1f,
 )
