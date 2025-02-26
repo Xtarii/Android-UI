@@ -12,10 +12,19 @@ import coil3.compose.AsyncImage
 import org.android.ui.styles.Style
 
 /**
+ * Default Card Image Style
+ */
+val DefaultCardImageStyle: Style = Style(
+    height = 100.dp
+)
+
+
+
+/**
  * Card Component Image
  */
 @Composable
-fun CardImage(image: String, alt: String, style: Style = Style()) {
+fun CardImage(image: String, alt: String, style: Style = DefaultCardImageStyle) {
     AsyncImage(
         model = image,
         contentDescription = alt,
@@ -30,7 +39,7 @@ fun CardImage(image: String, alt: String, style: Style = Style()) {
  * Card Component Image
  */
 @Composable
-fun CardImage(image: Int, alt: String, style: Style = Style()) {
+fun CardImage(image: Int, alt: String, style: Style = DefaultCardImageStyle) {
     Image(
         painter = painterResource(image),
         contentDescription = alt,
