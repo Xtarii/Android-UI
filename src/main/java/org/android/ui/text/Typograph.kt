@@ -17,20 +17,20 @@ import org.android.ui.styles.theme.useTheme
 /**
  * Text Types
  */
-enum class TextType(val value: TextUnit) {
+enum class TextType(val value: Float) {
     /**
      * Title Text
      */
-    TITLE(28.sp),
+    TITLE(28f),
     /**
      * Medium Title Text
      */
-    MEDIUM_TITLE(24.sp),
+    MEDIUM_TITLE(24f),
 
     /**
      * Paragraph Text
      */
-    PARAGRAPH(14.sp),
+    PARAGRAPH(14f),
 }
 
 
@@ -46,7 +46,7 @@ fun Typography(text: String = "", type: TextType = TextType.PARAGRAPH, color: St
 
 
     Box(modifier = Modifier.padding(style.margin)) {
-        Text(text, fontSize = type.value, color = textColor,
+        Text(text, fontSize = (type.value * style.textSize).sp, color = textColor,
             modifier = Modifier.drawBehind {
                 if(style.underline) drawLine(
                     color = textColor,
