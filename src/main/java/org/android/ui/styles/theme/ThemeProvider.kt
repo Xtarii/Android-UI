@@ -1,5 +1,6 @@
 package org.android.ui.styles.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
@@ -65,7 +66,7 @@ private val localTheme = compositionLocalOf { ThemeState(Theme()) }
  * A provider for the application theme.
  */
 @Composable
-fun ThemeProvider(theme: Theme = Theme(), children: @Composable () -> Unit = {}) {
+fun ThemeProvider(theme: Theme = Theme(dark = isSystemInDarkTheme()), children: @Composable () -> Unit = {}) {
     val state = remember { ThemeState(theme) }
     CompositionLocalProvider(localTheme provides state) {
         children()
