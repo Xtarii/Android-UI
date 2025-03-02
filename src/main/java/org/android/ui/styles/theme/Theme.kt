@@ -67,6 +67,10 @@ data class Theme (
             lightColor = Color(0xFFCBCBCB),
             darkColor = Color(0xFF423F3F)
         ))
+        put("outline", ThemeColorSet(
+            lightColor = Color(0xFF828080),
+            darkColor = Color(0xFF38404B)
+        ))
 
 
         // Text Colors

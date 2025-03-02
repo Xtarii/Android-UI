@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import org.android.ui.styles.DefaultStyles
 import org.android.ui.styles.Style
 import org.android.ui.styles.theme.useTheme
 
@@ -41,7 +42,7 @@ enum class ButtonType {
  * Button Component
  */
 @Composable
-fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, color: String = "primary", style: Style = Style(padding = ButtonDefaults.ContentPadding), disabled: Boolean = false, children: @Composable () -> Unit = {}) {
+fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, color: String = "primary", style: Style = DefaultStyles.Clickable.button, disabled: Boolean = false, children: @Composable () -> Unit = {}) {
     val theme = useTheme() // Gets Theme
     val mainColor = theme.getColor(color)
     val contentColor = theme.getColor("text")

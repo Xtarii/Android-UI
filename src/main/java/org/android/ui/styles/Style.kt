@@ -44,6 +44,16 @@ data class Style (
      * Component Height
      */
     val height: Dp = 0.dp,
+    /**
+     * Component Size
+     *
+     * Components that use
+     * size excludes ```width```
+     * and ```height``` as both
+     * those values will
+     * be set by the ```size```.
+     */
+    val size: Dp = 0.dp,
 
     /**
      * Component Alignment

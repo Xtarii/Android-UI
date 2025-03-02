@@ -1,4 +1,4 @@
-package org.android.ui.layouts.cards
+package org.android.ui.components.cards
 
 import androidx.compose.runtime.Composable
 import org.android.ui.styles.DefaultStyles

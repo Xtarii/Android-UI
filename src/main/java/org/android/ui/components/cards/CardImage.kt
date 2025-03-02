@@ -1,4 +1,4 @@
-package org.android.ui.layouts.cards
+package org.android.ui.components.cards
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
