@@ -95,6 +95,7 @@ The provided colors are:
 - primary
 - success
 - background : For other components such as cards, not the application background
+- outline : For outlines
 
 - text
 - dark text
