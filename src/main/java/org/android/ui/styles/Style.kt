@@ -56,6 +56,15 @@ data class Style (
     val size: Dp = 0.dp,
 
     /**
+     * Component Z Index
+     *
+     * This will determine if the
+     * component will render behind
+     * or in-front of other components.
+     */
+    val z: Int = 0,
+
+    /**
      * Component Alignment
      */
     val alignment: Alignment = Alignment.Center,

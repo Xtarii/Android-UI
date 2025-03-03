@@ -23,6 +23,14 @@ object DefaultStyles {
         )
 
         /**
+         * Default Boolean Style
+         */
+        val boolean: Style = Style(
+            width = 65.dp,
+            height = 30.dp
+        )
+
+        /**
          * Default Button Style
          */
         val button: Style = Style(padding = ButtonDefaults.ContentPadding)
