@@ -20,7 +20,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "org.android.ui"
             artifactId = "aui"
-            version = "1.0.1a1"
+            version = "1.0.1a2"
 
             afterEvaluate {
                 from(components["release"])
