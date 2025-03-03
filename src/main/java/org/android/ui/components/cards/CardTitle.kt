@@ -3,8 +3,8 @@ package org.android.ui.components.cards
 import androidx.compose.runtime.Composable
 import org.android.ui.styles.DefaultStyles
 import org.android.ui.styles.Style
-import org.android.ui.text.TextType
-import org.android.ui.text.Typography
+import org.android.ui.components.text.TextType
+import org.android.ui.components.text.Typography
 
 /**
  * Card Component Title

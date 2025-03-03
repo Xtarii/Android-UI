@@ -1,4 +1,4 @@
-package org.android.ui.text
+package org.android.ui.components.text
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding

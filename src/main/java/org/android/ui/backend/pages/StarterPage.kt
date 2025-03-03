@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import org.android.ui.clickable.Button
 import org.android.ui.styles.Style
 import org.android.ui.styles.theme.useTheme
-import org.android.ui.text.TextType
-import org.android.ui.text.Typography
+import org.android.ui.components.text.TextType
+import org.android.ui.components.text.Typography
 
 /**
  * Default Home Page for Android UI Package
