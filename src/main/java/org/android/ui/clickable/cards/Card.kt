@@ -26,6 +26,7 @@ import org.android.ui.styles.theme.useTheme
 @Composable
 fun Card(onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.Cards.main, color: String = "background", children: @Composable () -> Unit = {}) {
     val theme = useTheme()
+    val mainColor = style.backgroundColor ?: theme.getColor(color)
 
 
     // Content
@@ -44,7 +45,7 @@ fun Card(onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.Cards.
                         style.shadow.spot
                     )
             ) {
-                Column(modifier = Modifier.fillMaxSize().background(theme.getColor(color))) {
+                Column(modifier = Modifier.fillMaxSize().background(mainColor)) {
                     children()
                 }
             }
