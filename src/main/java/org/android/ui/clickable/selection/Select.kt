@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -33,8 +34,8 @@ import org.android.ui.styles.theme.useTheme
 @Composable
 fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.selection, disabled: Boolean = false) {
     val theme = useTheme()
-    val color = theme.getColor("outline")
-    val contentColor = theme.getColor("text")
+    val color = style.backgroundColor ?: theme.getColor("outline")
+    val contentColor = style.color ?: theme.getColor("text")
 
 
 
@@ -69,8 +70,8 @@ fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style 
 @Composable
 fun Boolean(value: Boolean = false, onClick: () -> Unit = {}, color: String = "primary", style: Style = DefaultStyles.Clickable.boolean, disabled: Boolean = false) {
     val theme = useTheme()
-    val main: Color = if(!value) theme.getColor("background") else theme.getColor(color)
-    val text = theme.getColor("text")
+    val main = if(!value) theme.getColor("background") else theme.getColor(color)
+    val text = style.color ?: theme.getColor("text")
 
     val colors = ButtonColors(
         containerColor = main, contentColor = text,
@@ -81,16 +82,18 @@ fun Boolean(value: Boolean = false, onClick: () -> Unit = {}, color: String = "p
 
     // Boolean Content
     Box(modifier = Modifier.padding(style.margin)) {
-        Button(onClick = onClick,
-            enabled = !disabled,
-            colors = colors,
-            contentPadding = PaddingValues(0.dp),
-            modifier = Modifier.width(style.width).height(style.height)
-        ) {
-            Box(modifier = Modifier.fillMaxSize()) {
-                Box(modifier = Modifier.size((style.height))
+        Box(modifier = Modifier, contentAlignment = Alignment.Center) {
+            Button(
+                onClick = onClick,
+                enabled = !disabled,
+                colors = colors,
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier.width(style.width).height(style.height).align(Alignment.Center)
+            ) {}
+            Box(modifier = Modifier.width(style.width)) {
+                Box(modifier = Modifier.requiredSize((style.height + 4.dp))
                     .background(color = text, shape = CircleShape)
-                    .align(if(value) Alignment.CenterEnd else Alignment.CenterStart)
+                    .align(if (value) Alignment.CenterEnd else Alignment.CenterStart)
                 )
             }
         }
