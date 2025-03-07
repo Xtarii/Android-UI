@@ -20,6 +20,41 @@ class MyApplication : RootLayout() {
 }
 ```
 
+To add a route system to the RootLayout use the metadata parameter
+```java
+class App : RootLayout(metadata = Meta(
+    fullscreen = true, // Is Fullscreen
+
+    // Routing
+    routing = HashMap<String, @Composable () -> Unit>().apply {
+        put("/") { Home() }
+        put("search") { Search() }
+    },
+
+    // Default Start and Fallback pages
+    start = { Home() },
+    fallback = { Fallback() }
+)) {}
+```
+
+This will allow the application to start with intent extra data
+```java
+startActivity(Intent(this, App::class.java).apply {
+    putExtra("route", "search")
+})
+```
+Note that in order for the router to know what page to load the activity needs
+to have the extra ```route``` provided with the route to the page, in this example
+it is ```search``` but that could be anything. There is no rule for what the
+route must be, it is just a simple ID to that page.
+
+There is no way to load that route with parameters, you could create
+the route with parameters but after the creation of the route it is permanent.
+However you could use ```intent.getStringExtra()``` or any other type on that page
+to get parameters.
+
+**Note** that if the page is not found the fallback page will be loaded instead.
+
 
 
 
