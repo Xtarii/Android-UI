@@ -1,10 +1,12 @@
 package org.android.ui.styles
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.graphics.DefaultShadowColor
 import androidx.compose.ui.unit.dp
 import org.android.ui.styles.shadows.Shadows
+import org.android.ui.styles.text.TextStyle
 
 /**
  * Default Android UI Styles
@@ -33,7 +35,7 @@ object DefaultStyles {
         /**
          * Default Button Style
          */
-        val button: Style = Style(padding = ButtonDefaults.ContentPadding)
+        val button: Style = Style(padding = ButtonDefaults.ContentPadding, shape = RoundedCornerShape(5.dp))
 
 
 
@@ -65,7 +67,28 @@ object DefaultStyles {
             /**
              * Title Style
              */
-            val title: Style = Style(margin = PaddingValues(start = 12.dp, top = 4.dp), textSize = 0.65f)
+            val title: Style = Style(margin = PaddingValues(start = 12.dp, top = 4.dp),
+                text = TextStyle(textSize = 0.65f)
+            )
         }
+    }
+
+    /**
+     * Default Typography Style
+     */
+    val typography: Style = Style()
+
+    /**
+     * Default Input Styles
+     */
+    object Input {
+        /**
+         * Main Input Style
+         */
+        val input: Style = Style(
+            shape = RoundedCornerShape(10.dp),
+            height = 75.dp,
+            width = 250.dp,
+        )
     }
 }
