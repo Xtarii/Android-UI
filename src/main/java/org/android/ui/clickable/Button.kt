@@ -44,8 +44,8 @@ enum class ButtonType {
 @Composable
 fun Button(onClick: () -> Unit = {}, type: ButtonType = ButtonType.CONTAINED, color: String = "primary", style: Style = DefaultStyles.Clickable.button, disabled: Boolean = false, children: @Composable () -> Unit = {}) {
     val theme = useTheme() // Gets Theme
-    val mainColor = theme.getColor(color)
-    val contentColor = theme.getColor("text")
+    val mainColor = style.backgroundColor ?: theme.getColor(color)
+    val contentColor = style.color ?: theme.getColor("text")
 
     // Button style data
     val modifier: Modifier = if(type == ButtonType.CONTAINED) Modifier.shadow(style.shadow.elevation, shape = style.shadow.shape)
