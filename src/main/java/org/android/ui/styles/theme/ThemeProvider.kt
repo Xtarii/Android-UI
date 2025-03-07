@@ -29,6 +29,11 @@ class ThemeState(theme: Theme) {
     var dark get() = state.dark
         set(value) { state = state.copy(dark = value) }
 
+    /**
+     * Theme Background Color
+     */
+    val background get() = state.getBackground()
+
 
 
     /**
@@ -44,11 +49,6 @@ class ThemeState(theme: Theme) {
      * else the light mode is returned.
      */
     fun getColor(color: String): Color { return state.getColor(color) }
-
-    /**
-     * Gets the Theme Background Color
-     */
-    fun getBackground(): Color { return state.getBackground() }
 }
 
 
