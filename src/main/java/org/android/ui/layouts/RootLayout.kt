@@ -23,12 +23,15 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         if(metadata.fullscreen) hideSystemUI() // Hides Navigation UI
+        val route: String? = intent.getStringExtra("route")
 
         onSetup() // Setup
         setContent { // Layout Content
             ActivityProvider(this@RootLayout) {
-                RouterProvider(metadata.startPage) {
+                RouterProvider(metadata.routing, metadata.start, metadata.fallback) {
                     val router = useRouter()
+                    if(route != null) router.setLocation(route) // Loads Route Page as current
+
                     Layout {
                         router.Current()
                     }
