@@ -20,11 +20,26 @@ import androidx.compose.runtime.setValue
  * many different pages.
  */
 @Stable
-class Router(start: @Composable () -> Unit) {
+class Router(
+    /**
+     * Page Routing Map
+     */
+    private val routing: HashMap<String, @Composable () -> Unit>,
+
+    /**
+     * Starting Page
+     */
+    private val start: @Composable () -> Unit,
+    /**
+     * Fallback Page
+     */
+    private val fallback: @Composable () -> Unit,
+) {
     /**
      * Current Router Page
      */
     private var _current by mutableStateOf<(@Composable () -> Unit)>(start)
+
 
     /**
      * Current Router Page
@@ -41,6 +56,19 @@ class Router(start: @Composable () -> Unit) {
      * Sets Application Location to the provided page
      */
     fun setLocation(page: @Composable () -> Unit) { _current = page }
+    /**
+     * Sets Application Location to the provided page route
+     */
+    fun setLocation(page: String) { _current = routing[page] ?: fallback }
+    /**
+     * Sets Application Location to the ```starter``` page
+     */
+    fun setLocation() { _current = start }
+
+    /**
+     * Sets Application Location to the ```fallback``` Page
+     */
+    fun error() { _current = fallback }
 }
 
 
@@ -68,8 +96,8 @@ private val localRouter = compositionLocalOf<Router> {
  * other components.
  */
 @Composable
-fun RouterProvider(start: @Composable () -> Unit, children: @Composable () -> Unit) {
-    val router = remember { Router(start) }
+fun RouterProvider(routing: HashMap<String, @Composable () -> Unit>, start: @Composable () -> Unit, fallback: @Composable () -> Unit, children: @Composable () -> Unit) {
+    val router = remember { Router(routing, start, fallback) }
     CompositionLocalProvider(localRouter provides router) {
         children()
     }
