@@ -94,6 +94,8 @@ could be nice to set the colors wanted.
 The provided colors are:
 - primary
 - success
+- error
+
 - background : For other components such as cards, not the application background
 - outline : For outlines
 
@@ -144,6 +146,9 @@ val router = useRouter() // Gets the router
 // Switch Page
 router.setLocation(MyComposablePage()) // Switch to a page that is a composable component
 router.setLocation({ MyComposablePage(<params>) }) // Switch to a page with parameters
+
+
+router.setLocation("<route>") // Loads Page with route, parameter less pages that uses Intent Extras
 ```
 
 There are also some helping classes such as ```Style``` which provides styling to the components.
