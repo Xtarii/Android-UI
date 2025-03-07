@@ -1,6 +1,7 @@
 package org.android.ui.backend.meta
 
 import androidx.compose.runtime.Composable
+import org.android.ui.backend.pages.Error
 import org.android.ui.backend.pages.StarterPage
 
 /**
@@ -13,7 +14,19 @@ data class Meta (
     val fullscreen: Boolean = false,
 
     /**
-     * The Application Starter Page
+     * The Application Page Routing
      */
-    val startPage: @Composable () -> Unit = { StarterPage() }
+    val routing: HashMap<String, @Composable () -> Unit> = HashMap<String, @Composable () -> Unit>().apply {
+        put("home") { StarterPage() }
+    },
+
+    /**
+     * Application Starter Page
+     */
+    val start: @Composable () -> Unit = { StarterPage() },
+
+    /**
+     * Application Page Loading Fallback Page
+     */
+    val fallback: @Composable () -> Unit = { Error() },
 )
