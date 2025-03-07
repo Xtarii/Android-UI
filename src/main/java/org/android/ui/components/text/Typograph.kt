@@ -7,10 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import org.android.ui.styles.DefaultStyles
 import org.android.ui.styles.Style
 import org.android.ui.styles.theme.useTheme
 
@@ -40,13 +39,13 @@ enum class TextType(val value: Float) {
  */
 @Preview
 @Composable
-fun Typography(text: String = "", type: TextType = TextType.PARAGRAPH, color: String = "text", style: Style = Style()) {
+fun Typography(text: String = "", type: TextType = TextType.PARAGRAPH, color: String = "text", style: Style = DefaultStyles.typography) {
     val theme = useTheme()
-    val textColor = theme.getColor(color)
+    val textColor = style.color ?: theme.getColor(color)
 
 
     Box(modifier = Modifier.padding(style.margin)) {
-        Text(text, fontSize = (type.value * style.textSize).sp, color = textColor,
+        Text(text, fontSize = (type.value * style.text.textSize).sp, color = textColor,
             modifier = Modifier.drawBehind {
                 if(style.underline) drawLine(
                     color = textColor,
