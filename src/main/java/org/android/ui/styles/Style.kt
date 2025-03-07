@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.android.ui.styles.shadows.Shadows
+import org.android.ui.styles.text.TextStyle
 
 /**
  * Component Style Data
@@ -16,12 +17,20 @@ import org.android.ui.styles.shadows.Shadows
 data class Style (
     /**
      * Component Background Color
+     *
+     * By default this is set
+     * and controlled by the
+     * current theme.
      */
-    val backgroundColor: Color = Color.Transparent,
+    val backgroundColor: Color? = null,
     /**
      * Component Content Color
+     *
+     * By default this is set
+     * and controlled by the
+     * current theme.
      */
-    val color: Color = Color.Black,
+    val color: Color? = null,
 
     /**
      * Component Margin Values
@@ -91,8 +100,10 @@ data class Style (
      */
     val shadow: Shadows = Shadows(),
 
+
+
     /**
-     * Component Text Size
+     * Component Text Related Style Config
      */
-    val textSize: Float = 1f,
+    val text: TextStyle = TextStyle()
 )
