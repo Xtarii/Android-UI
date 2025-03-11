@@ -4,12 +4,17 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -37,6 +42,9 @@ fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style 
     val color = style.backgroundColor ?: theme.getColor("outline")
     val contentColor = style.color ?: theme.getColor("text")
 
+    // Modifier
+    val modifier = Modifier.then(if (style.dimensions.maxSize) Modifier.fillMaxSize() else Modifier.size(style.dimensions.size))
+
 
 
     // Content
@@ -50,7 +58,7 @@ fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style 
             border = BorderStroke(style.borderSize.dp, color),
             shape = RoundedCornerShape(2.dp),
             contentPadding = PaddingValues(0.dp),
-            modifier = Modifier.size(style.size),
+            modifier = modifier,
         ) {
             if(value) Icon(Icons.Filled.Check, "boolean", modifier = Modifier.fillMaxSize())
         }
@@ -68,7 +76,7 @@ fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style 
  */
 @Preview
 @Composable
-fun Boolean(value: Boolean = false, onClick: () -> Unit = {}, color: String = "primary", style: Style = DefaultStyles.Clickable.boolean, disabled: Boolean = false) {
+fun Switch(value: Boolean = false, onClick: () -> Unit = {}, color: String = "primary", style: Style = DefaultStyles.Clickable.switch, disabled: Boolean = false) {
     val theme = useTheme()
     val main = if(!value) theme.getColor("background") else theme.getColor(color)
     val text = style.color ?: theme.getColor("text")
@@ -77,6 +85,21 @@ fun Boolean(value: Boolean = false, onClick: () -> Unit = {}, color: String = "p
         containerColor = main, contentColor = text,
         disabledContainerColor = main.copy(alpha = 0.3f), disabledContentColor = text.copy(alpha = 0.3f)
     )
+
+    // Modifier
+    val modifier = Modifier
+        .then(
+            if(style.dimensions.fitSize) Modifier.wrapContentSize()
+            else if(style.dimensions.maxSize) Modifier.fillMaxSize() else Modifier
+        )
+        .then(
+            if(style.dimensions.fitWidth || style.dimensions.fitSize) Modifier.wrapContentWidth()
+            else if(style.dimensions.maxWidth) Modifier.fillMaxWidth() else Modifier.width(style.dimensions.width)
+        )
+        .then(
+            if(style.dimensions.fitHeight || style.dimensions.fitSize) Modifier.wrapContentHeight()
+            else if(style.dimensions.maxHeight) Modifier.fillMaxHeight() else Modifier.height(style.dimensions.height)
+        )
 
 
 
@@ -88,10 +111,10 @@ fun Boolean(value: Boolean = false, onClick: () -> Unit = {}, color: String = "p
                 enabled = !disabled,
                 colors = colors,
                 contentPadding = PaddingValues(0.dp),
-                modifier = Modifier.width(style.width).height(style.height).align(Alignment.Center)
+                modifier = modifier.then(Modifier.align(Alignment.Center))
             ) {}
-            Box(modifier = Modifier.width(style.width)) {
-                Box(modifier = Modifier.requiredSize((style.height + 4.dp))
+            Box(modifier = Modifier.width(style.dimensions.width)) {
+                Box(modifier = Modifier.requiredSize((style.dimensions.height + 4.dp))
                     .background(color = text, shape = CircleShape)
                     .align(if (value) Alignment.CenterEnd else Alignment.CenterStart)
                 )
