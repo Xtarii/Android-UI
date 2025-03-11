@@ -5,6 +5,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.graphics.DefaultShadowColor
 import androidx.compose.ui.unit.dp
+import org.android.ui.styles.objects.Dimensions
 import org.android.ui.styles.shadows.Shadows
 import org.android.ui.styles.text.TextStyle
 
@@ -21,15 +22,19 @@ object DefaultStyles {
          */
         val selection: Style = Style(
             borderSize = 2f,
-            size = 25.dp
+            dimensions = Dimensions(
+                size = 25.dp
+            )
         )
 
         /**
          * Default Boolean Style
          */
-        val boolean: Style = Style(
-            width = 65.dp,
-            height = 30.dp
+        val switch: Style = Style(
+            dimensions = Dimensions(
+                width = 65.dp,
+                height = 25.dp
+            )
         )
 
         /**
@@ -47,8 +52,10 @@ object DefaultStyles {
              * Main Style
              */
             val main: Style = Style(
-                width = 150.dp,
-                height = 200.dp,
+                dimensions = Dimensions(
+                    width = 150.dp,
+                    height = 200.dp,
+                ),
                 shadow = Shadows().copy(
                     elevation = 15.dp,
                     ambient = DefaultShadowColor,
@@ -59,7 +66,11 @@ object DefaultStyles {
             /**
              * Image Style
              */
-            val image: Style = Style(height = 100.dp)
+            val image: Style = Style(
+                dimensions = Dimensions(
+                    height = 100.dp, maxWidth = true
+                )
+            )
             /**
              * Text Style
              */
@@ -87,8 +98,46 @@ object DefaultStyles {
          */
         val input: Style = Style(
             shape = RoundedCornerShape(10.dp),
-            height = 75.dp,
-            width = 250.dp,
+            dimensions = Dimensions(
+                height = 75.dp,
+                width = 250.dp,
+            )
+        )
+    }
+
+    /**
+     * Default Radio Styles
+     */
+    object Radio {
+        /**
+         * Radio Buttons Style
+         */
+        val button: Style = Style(
+            margin = PaddingValues(start = 5.dp)
+        )
+
+        /**
+         * Radio Group Style
+         */
+        val group: Style = Style(
+            dimensions = Dimensions(
+                fitSize = true
+            )
+        )
+    }
+
+    /**
+     * Default Indicator Styles
+     */
+    object Indicator {
+        /**
+         * Linear Style
+         */
+        val linear: Style = Style(
+            dimensions = Dimensions(
+                maxWidth = true,
+                height = 5.dp
+            )
         )
     }
 }
