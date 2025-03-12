@@ -6,8 +6,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.android.ui.styles.objects.Dimensions
 import org.android.ui.styles.shadows.Shadows
 import org.android.ui.styles.text.TextStyle
 
@@ -45,33 +45,17 @@ data class Style (
      * Component Shape
      */
     val shape: Shape = RoundedCornerShape(15.dp),
-    /**
-     * Component Width
-     */
-    val width: Dp = 0.dp,
-    /**
-     * Component Height
-     */
-    val height: Dp = 0.dp,
-    /**
-     * Component Size
-     *
-     * Components that use
-     * size excludes ```width```
-     * and ```height``` as both
-     * those values will
-     * be set by the ```size```.
-     */
-    val size: Dp = 0.dp,
 
     /**
-     * Component Z Index
+     * Component Dimensions Style
      *
-     * This will determine if the
-     * component will render behind
-     * or in-front of other components.
+     * A components dimensions is
+     * its height, width and
+     * other size related styling
      */
-    val z: Int = 0,
+    val dimensions: Dimensions = Dimensions(),
+
+
 
     /**
      * Component Alignment
@@ -81,6 +65,14 @@ data class Style (
      * Component Inner Alignment
      */
     val innerAlignment: Alignment = Alignment.Center,
+    /**
+     * Component Display Inner Components in a vertical alignment
+     */
+    val vertical: Boolean = true,
+    /**
+     * Component Scroll
+     */
+    val scroll: Boolean = false,
 
     /**
      * Component Border

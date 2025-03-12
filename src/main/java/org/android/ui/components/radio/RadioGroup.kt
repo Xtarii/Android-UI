@@ -1,9 +1,7 @@
-package org.android.ui.clickable.cards
+package org.android.ui.components.radio
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,28 +11,31 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.Button
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import org.android.ui.clickable.Button
+import org.android.ui.clickable.ButtonType
+import org.android.ui.clickable.radio.Radio
 import org.android.ui.styles.DefaultStyles
 import org.android.ui.styles.Style
-import org.android.ui.styles.theme.useTheme
 
 /**
- * Card Component
+ * Radio Group Component
  */
 @Preview
 @Composable
-fun Card(onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.Cards.main, color: String = "background", children: @Composable () -> Unit = {}) {
-    val theme = useTheme()
-    val mainColor = style.backgroundColor ?: theme.getColor(color)
-
-    // Card Modifier
-    val modifier = Modifier
+fun <T> RadioGroup(
+    value: T? = null,
+    onChange: (value: T) -> Unit = {},
+    options: MutableList<Radio<T>> = ArrayList(),
+    style: Style = DefaultStyles.Radio.group
+) {
+    val modifier = Modifier.background(style.color ?: Color.Transparent, shape = style.shape)
         .then(
             if(style.dimensions.fitSize) Modifier.wrapContentSize()
             else if(style.dimensions.maxSize) Modifier.fillMaxSize() else Modifier
@@ -48,27 +49,20 @@ fun Card(onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.Cards.
             else if(style.dimensions.maxHeight) Modifier.fillMaxHeight() else Modifier.height(style.dimensions.height)
         )
 
-
     // Content
-    Box(modifier = Modifier.padding(style.margin), contentAlignment = Alignment.Center) {
-        Box(modifier = modifier) {
-            Button(
-                onClick = onClick,
-                shape = style.shape,
-                contentPadding = PaddingValues(0.dp),
-                modifier = Modifier.fillMaxSize()
-                    .shadow(
-                        style.shadow.elevation,
-                        style.shadow.shape,
-                        style.shadow.clip,
-                        style.shadow.ambient,
-                        style.shadow.spot
-                    )
-            ) {
-                Column(modifier = Modifier.fillMaxSize().background(mainColor)) {
-                    children()
-                }
-            }
-        }
+    Box(modifier = Modifier.padding(style.margin)) {
+        if(style.vertical) LazyColumn(modifier, userScrollEnabled = style.scroll) { items(options) { Inner(value, onChange, it) } }
+        else LazyRow(modifier, userScrollEnabled = style.scroll) { items(options) { Inner(value, onChange, it) } }
+    }
+}
+
+
+
+
+
+@Composable
+private fun <T> Inner(value: T?, onChange: (value: T) -> Unit, item: Radio<T>) {
+    Button(onClick = { onChange(item.value) }, type = ButtonType.TEXT, style = item.style, disabled = item.disabled) {
+        item.slot(value == item.value)
     }
 }

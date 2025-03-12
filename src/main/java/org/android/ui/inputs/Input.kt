@@ -1,9 +1,15 @@
 package org.android.ui.inputs
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
@@ -121,6 +127,22 @@ private fun Outline(
     error: Boolean, hiddenInput: Boolean, disabled: Boolean,
     style: Style
 ) {
+    // Modifier
+    val modifier = Modifier
+        .then(
+            if(style.dimensions.fitSize) Modifier.wrapContentSize()
+            else if(style.dimensions.maxSize) Modifier.fillMaxSize() else Modifier
+        )
+        .then(
+            if(style.dimensions.fitWidth || style.dimensions.fitSize) Modifier.wrapContentWidth()
+            else if(style.dimensions.maxWidth) Modifier.fillMaxWidth() else Modifier.width(style.dimensions.width)
+        )
+        .then(
+            if(style.dimensions.fitHeight || style.dimensions.fitSize) Modifier.wrapContentHeight()
+            else if(style.dimensions.maxHeight) Modifier.fillMaxHeight() else Modifier.height(style.dimensions.height)
+        )
+
+    // Input
     OutlinedTextField(
         value = value,
         onValueChange = onChange,
@@ -132,9 +154,7 @@ private fun Outline(
             unfocusedIndicatorColor = mainColor,
             focusedIndicatorColor = mainColor,
         ),
-        modifier = Modifier
-            .width(style.width)
-            .height(style.height),
+        modifier = modifier,
 
         visualTransformation = if(!hiddenInput) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = style.text.keyboardType),
@@ -157,6 +177,22 @@ private fun Underline(
     error: Boolean, hiddenInput: Boolean, disabled: Boolean,
     style: Style
 ) {
+    // Modifier
+    val modifier = Modifier
+        .then(
+            if(style.dimensions.fitSize) Modifier.wrapContentSize()
+            else if(style.dimensions.maxSize) Modifier.fillMaxSize() else Modifier
+        )
+        .then(
+            if(style.dimensions.fitWidth || style.dimensions.fitSize) Modifier.wrapContentWidth()
+            else if(style.dimensions.maxWidth) Modifier.fillMaxWidth() else Modifier.width(style.dimensions.width)
+        )
+        .then(
+            if(style.dimensions.fitHeight || style.dimensions.fitSize) Modifier.wrapContentHeight()
+            else if(style.dimensions.maxHeight) Modifier.fillMaxHeight() else Modifier.height(style.dimensions.height)
+        )
+
+    // Input
     TextField(
         value = value,
         onValueChange = onChange,
@@ -168,9 +204,7 @@ private fun Underline(
             unfocusedIndicatorColor = mainColor,
             focusedIndicatorColor = mainColor,
         ),
-        modifier = Modifier
-            .width(style.width)
-            .height(style.height),
+        modifier = modifier,
 
         visualTransformation = if(!hiddenInput) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = style.text.keyboardType),

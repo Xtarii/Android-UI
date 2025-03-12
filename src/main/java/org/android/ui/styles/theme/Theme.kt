@@ -3,6 +3,11 @@ package org.android.ui.styles.theme
 import androidx.compose.ui.graphics.Color
 
 /**
+ * Type Alias for the Theme Keys
+ */
+typealias ThemeKeysType = String
+
+/**
  * Theme Color Set
  */
 data class ThemeColorSet (
@@ -53,7 +58,7 @@ data class Theme (
     /**
      * Theme colors set
      */
-    private val colors: HashMap<String, ThemeColorSet> = HashMap<String, ThemeColorSet>().apply {
+    private val colors: HashMap<ThemeKeysType, ThemeColorSet> = HashMap<ThemeKeysType, ThemeColorSet>().apply {
         // Main Colors
         put("primary", ThemeColorSet(
             lightColor = Color(0xFF24A0FF),
@@ -92,7 +97,7 @@ data class Theme (
     /**
      * Gets Theme Color set by color set name
      */
-    fun getColorSet(color: String): ThemeColorSet { return colors[color] ?: fallbackColorSet }
+    fun getColorSet(color: ThemeKeysType): ThemeColorSet { return colors[color] ?: fallbackColorSet }
 
     /**
      * Gets Color of theme set
@@ -101,7 +106,7 @@ data class Theme (
      * the dark color is returned,
      * else the light mode is returned.
      */
-    fun getColor(color: String): Color {
+    fun getColor(color: ThemeKeysType): Color {
         val colorSet = getColorSet(color)
         return if(dark) colorSet.darkColor
         else colorSet.lightColor

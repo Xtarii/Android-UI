@@ -12,6 +12,10 @@ data class Meta (
      * Weather or not to use fullscreen
      */
     val fullscreen: Boolean = false,
+    /**
+     * Weather or not to use Edge to Edge
+     */
+    val edgeToEdge: Boolean = true,
 
     /**
      * The Application Page Routing

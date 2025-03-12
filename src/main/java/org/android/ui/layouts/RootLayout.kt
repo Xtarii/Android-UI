@@ -20,7 +20,7 @@ import org.android.ui.backend.router.useRouter
  */
 abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
+        if(metadata.edgeToEdge) enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         if(metadata.fullscreen) hideSystemUI() // Hides Navigation UI
         val route: String? = intent.getStringExtra("route")

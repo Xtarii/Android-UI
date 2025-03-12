@@ -39,7 +39,7 @@ class ThemeState(theme: Theme) {
     /**
      * Gets Theme Color set by color set name
      */
-    fun getColorSet(color: String): ThemeColorSet { return state.getColorSet(color) }
+    fun getColorSet(color: ThemeKeysType): ThemeColorSet { return state.getColorSet(color) }
 
     /**
      * Gets Color of theme set
@@ -48,7 +48,7 @@ class ThemeState(theme: Theme) {
      * the dark color is returned,
      * else the light mode is returned.
      */
-    fun getColor(color: String): Color { return state.getColor(color) }
+    fun getColor(color: ThemeKeysType): Color { return state.getColor(color) }
 }
 
 
