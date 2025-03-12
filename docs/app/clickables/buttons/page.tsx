@@ -1,8 +1,7 @@
+import CodeBlock from "@/components/code/code"
 import { Box, Container, Typography } from "@mui/material"
 import Image from "next/image"
 import { ReactElement } from "react"
-import { Prism as SyntaxHighLighter } from "react-syntax-highlighter"
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 
 export default function Page() : ReactElement {
     return(<div>
@@ -15,7 +14,7 @@ export default function Page() : ReactElement {
             {/* Main */}
             <Box sx={{ display: "flex", width: "fit-content" }}>
                 <Image
-                    src={"/clickable/buttons/preview.png"}
+                    src={"../clickable/buttons/preview.png"}
                     alt="Image of three simple buttons"
 
                     width={350} height={125} priority
@@ -25,11 +24,11 @@ export default function Page() : ReactElement {
                     }}
                 />
                 <Box sx={{ margin: "auto" }}>
-                    <SyntaxHighLighter language="kotlin" style={oneDark}>{
+                    <CodeBlock>{
                         'Button(type = ButtonType.TEXT)\n' +
                         'Button(type = ButtonType.OUTLINED)\n' +
                         'Button() // Default is ButtonType.CONTAINED\n'
-                    }</SyntaxHighLighter>
+                    }</CodeBlock>
                 </Box>
             </Box>
             <Box>
@@ -42,7 +41,7 @@ export default function Page() : ReactElement {
                     - or by setting the <code>color</code> parameter -
                     the buttons color and content color will change.
                 </Typography>
-                <SyntaxHighLighter language="kotlin" style={oneDark}>{
+                <CodeBlock>{
                 'Button(\n' +
                     '\tonClick = {},\n' +
                     '\ttype = ButtonType.CONTAINED,\n' +
@@ -52,7 +51,7 @@ export default function Page() : ReactElement {
                 ') {\n' +
                     '\t...\n' +
                 '}\n'
-                }</SyntaxHighLighter>
+                }</CodeBlock>
             </Box>
         </Container>
     </div>)
