@@ -64,9 +64,9 @@ jobs:
         with:
           path: |
             docs/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('docs/**/package-lock.json', 'docs/**/yarn.lock') }}-${{ hashFiles('docs/**.[jt]s', 'docs/**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('docs/package-lock.json', 'docs/yarn.lock') }}-${{ hashFiles('docs/**.[jt]s', 'docs/**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('docs/**/package-lock.json', 'docs/**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('docs/package-lock.json', 'docs/yarn.lock') }}-
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
