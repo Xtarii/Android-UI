@@ -39,7 +39,7 @@ export default function Page() : ReactElement {
             <Typography>
                 The router can be accessed with <code>useRouter()</code>.
                 The router can be used to change where in the application
-                a user located with either a <code>Composable Page</code> or
+                a user is located with either a <code>Composable Page</code> or
                 a <code>string</code> that links to a <code>router mapping</code>.
             </Typography>
             <CodeBlock>{
