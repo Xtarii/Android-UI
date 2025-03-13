@@ -35,7 +35,7 @@ export default function Base({ children, }: Readonly<{ children: React.ReactNode
                     </Button>
                 </Toolbar>
                 <Divider />
-                <List>{[{ name: "Base", route: "/base" }].map((value, index) => <ListItem key={index}>
+                <List>{[{ name: "Base", route: "./base" }].map((value, index) => <ListItem key={index}>
                     <ListItemButton href={value.route}>
                         <ListItemText primary={value.name} />
                     </ListItemButton>
