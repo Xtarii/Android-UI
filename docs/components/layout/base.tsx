@@ -35,7 +35,11 @@ export default function Base({ children, }: Readonly<{ children: React.ReactNode
                     </Button>
                 </Toolbar>
                 <Divider />
-                <List>{[{ name: "Base", route: "https://xtarii.github.io/Android-UI/base" }].map((value, index) => <ListItem key={index}>
+                <List>{[
+                    { name: "Base", route: "https://xtarii.github.io/Android-UI/base" },
+                    { name: "Clickables", route: "https://xtarii.github.io/Android-UI/clickables" },
+                    { name: "Components", route: "https://xtarii.github.io/Android-UI/components" },
+                ].map((value, index) => <ListItem key={index}>
                     <ListItemButton href={value.route}>
                         <ListItemText primary={value.name} />
                     </ListItemButton>

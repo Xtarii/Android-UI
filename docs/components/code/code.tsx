@@ -5,6 +5,6 @@ import { ReactElement } from "react"
 /**
  * Code block Element
  */
-export default function CodeBlock({ children } : { children: string }) : ReactElement {
-    return(<SyntaxHighLighter language="kotlin" style={oneDark}>{children}</SyntaxHighLighter>)
+export default function CodeBlock({ children, language = "kotlin" } : { children: string, language?: string }) : ReactElement {
+    return(<SyntaxHighLighter language={language} style={oneDark}>{children}</SyntaxHighLighter>)
 }
