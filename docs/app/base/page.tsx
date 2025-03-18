@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, List, ListItem, ListItemButton, Typography } from "@mui/material"
 import Link from "next/link"
 import { ReactElement } from "react"
 
@@ -8,9 +8,27 @@ export default function Page() : ReactElement {
 
 
         <Box>
-            <Link href={"./base/layout/"}>Getting Started - <code>RootLayout</code></Link>
-            <br />
-            <Link href={"./base/router/"}>Router and RouterProvider</Link>
+            <List>
+                <ListItem>
+                    <ListItemButton href="./base/layout">Root Layout</ListItemButton>
+                </ListItem>
+
+                {/* Router and Routes */}
+                <ListItem>
+                    <ListItemButton href="./base/router#provider">RouterProvider</ListItemButton>
+                </ListItem>
+                <ListItem>
+                    <ListItemButton href="./base/router#router">Router</ListItemButton>
+                </ListItem>
+                <ListItem>
+                    <ListItemButton href="./base/router#routes">Routes</ListItemButton>
+                </ListItem>
+
+                {/* Themes and style */}
+                <ListItem>
+                    <ListItemButton href="./base/themes">Themes</ListItemButton>
+                </ListItem>
+            </List>
         </Box>
     </div>)
 }
