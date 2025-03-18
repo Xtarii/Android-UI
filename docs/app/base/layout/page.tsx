@@ -65,7 +65,7 @@ export default function Page() : ReactElement {
                     And the <code>Layout()</code> method is where he application layout
                     is placed.
                     <br />
-                    By default a <Link href={"./router"}><code>RouterProvider</code></Link> is
+                    By default a <code><Link href={"./router"} className="link">RouterProvider</Link></code> is
                     created for the layout.
                 </Typography>
                 <CodeBlock>{
