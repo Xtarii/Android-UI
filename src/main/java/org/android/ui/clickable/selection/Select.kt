@@ -39,7 +39,8 @@ import org.android.ui.styles.theme.useTheme
 @Composable
 fun SelectionBox(value: Boolean = false, onClick: () -> Unit = {}, style: Style = DefaultStyles.Clickable.selection, disabled: Boolean = false) {
     val theme = useTheme()
-    val color = style.backgroundColor ?: theme.getColor("outline")
+    var color = style.backgroundColor ?: theme.getColor("outline")
+    if(disabled) color = color.copy(alpha = 0.4f)
     val contentColor = style.color ?: theme.getColor("text")
 
     // Modifier
