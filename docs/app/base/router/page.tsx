@@ -9,10 +9,11 @@ export default function Page() : ReactElement {
 
         {/* Router Provider */}
         <Box>
+            <div id="provider" />
             <Typography variant="h5">RouterProvider</Typography>
             <Typography>
                 By default a <code>RouterProvider</code> is supplied in
-                the <code><Link href={"./layout"}>RootLayout</Link></code>.
+                the <code><Link href={"./layout"} className="link">RootLayout</Link></code>.
             </Typography>
             <Typography>
                 The RouterProvider takes the following parameters,
@@ -35,6 +36,7 @@ export default function Page() : ReactElement {
 
         {/* Router */}
         <Box>
+            <div id="router" />
             <Typography variant="h5">Router</Typography>
             <Typography>
                 The router can be accessed with <code>useRouter()</code>.
@@ -56,6 +58,7 @@ export default function Page() : ReactElement {
 
         {/* Routes */}
         <Box>
+            <div id="routes" />
             <Typography variant="h5">Routes</Typography>
             <Typography>
                 If there are pages that does not take any parameters they
@@ -86,7 +89,7 @@ export default function Page() : ReactElement {
                 ")\n"
             }</CodeBlock>
             <Typography>
-                This only works if the application builds on the <code><Link href={"./layout"}>RootLayout</Link></code>.
+                This only works if the application builds on the <code><Link href={"./layout"} className="link">RootLayout</Link></code>.
             </Typography>
         </Box>
     </div>)
