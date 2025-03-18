@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
     return (<div>
         <main>
-            <Box sx={{ margin: "auto", width: "80%" }}>
+            <Box>
                 <Typography variant="h3">Getting Started</Typography>
                 <Box sx={{ marginTop: "25px" }}>
                     <Typography variant="h4">Adding <code>AUI</code> to a project</Typography>

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { List, ListItem, ListItemButton, Typography } from "@mui/material"
 import Link from "next/link"
 import { ReactElement } from "react"
 
@@ -12,6 +12,18 @@ export default function Page() : ReactElement {
         </Typography>
 
         {/* Content List */}
-        <Link href={"./clickables/buttons"}>Buttons</Link>
+        <List>
+            <ListItem>
+                <ListItemButton href="./clickables/buttons">Buttons</ListItemButton>
+            </ListItem>
+
+            {/* Selection Components */}
+            <ListItem>
+                <ListItemButton href="./clickables/selection#selection">Selection Box</ListItemButton>
+            </ListItem>
+            <ListItem>
+                <ListItemButton href="./clickables/selection#switch">Switches</ListItemButton>
+            </ListItem>
+        </List>
     </div>)
 }

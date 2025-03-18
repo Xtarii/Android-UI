@@ -53,6 +53,28 @@ export default function Page() : ReactElement {
                 '}\n'
                 }</CodeBlock>
             </Box>
+
+            <Box sx={{ marginTop: "125px" }}>
+                <Typography variant="h5">Disabled and Enabled Buttons</Typography>
+                <Box sx={{ display: "flex", width: "fit-content" }}>
+                    <Image
+                        src={"../clickable/buttons/button enabled.png"}
+                        alt="Image of Disabled and Enabled buttons"
+
+                        width={350} height={75} priority
+
+                        style={{ borderRadius: "10px",
+                            margin: "auto 5%"
+                        }}
+                    />
+                    <Box sx={{ margin: "auto" }}>
+                        <CodeBlock>{
+                            'Button() { ... }\n' +
+                            'Button(disabled = true) { ... }\n'
+                        }</CodeBlock>
+                    </Box>
+                </Box>
+            </Box>
         </Container>
     </div>)
 }

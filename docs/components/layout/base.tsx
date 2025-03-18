@@ -48,7 +48,7 @@ export default function Base({ children, }: Readonly<{ children: React.ReactNode
 
               {/* Content */}
               <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
-                    {children}
+                    <Box sx={{ margin: "auto", width: "80%" }}>{children}</Box>
               </Box>
           </Box>
     </ThemeProvider>)
