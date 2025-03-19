@@ -26,9 +26,6 @@ export default function Page() : ReactElement {
                     <CodeBlock>{"LinearProgress()"}</CodeBlock>
                 </Box>
             </Box>
-            <Typography>
-                Linear Progress can be customized both the bar color and the background color.
-            </Typography>
         </Box>
     </div>)
 }
