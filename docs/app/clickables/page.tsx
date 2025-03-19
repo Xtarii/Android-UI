@@ -1,5 +1,4 @@
 import { List, ListItem, ListItemButton, Typography } from "@mui/material"
-import Link from "next/link"
 import { ReactElement } from "react"
 
 export default function Page() : ReactElement {
@@ -23,6 +22,9 @@ export default function Page() : ReactElement {
             </ListItem>
             <ListItem>
                 <ListItemButton href="./clickables/selection#switch">Switches</ListItemButton>
+            </ListItem>
+            <ListItem>
+                <ListItemButton href="./clickables/cards">Cards</ListItemButton>
             </ListItem>
         </List>
     </div>)

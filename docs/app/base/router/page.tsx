@@ -8,7 +8,7 @@ export default function Page() : ReactElement {
         <Typography variant="h4">Router and RouterProvider</Typography>
 
         {/* Router Provider */}
-        <Box>
+        <Box marginTop={"25px"}>
             <div id="provider" />
             <Typography variant="h5">RouterProvider</Typography>
             <Typography>
@@ -35,7 +35,7 @@ export default function Page() : ReactElement {
         </Box>
 
         {/* Router */}
-        <Box>
+        <Box marginTop={"75px"}>
             <div id="router" />
             <Typography variant="h5">Router</Typography>
             <Typography>
@@ -57,7 +57,7 @@ export default function Page() : ReactElement {
         </Box>
 
         {/* Routes */}
-        <Box>
+        <Box marginTop={"75px"}>
             <div id="routes" />
             <Typography variant="h5">Routes</Typography>
             <Typography>
