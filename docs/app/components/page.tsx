@@ -15,6 +15,11 @@ export default function Page() : ReactElement {
             <ListItem>
                 <ListItemButton href="./components/indicators#linearProgress">Linear Progress</ListItemButton>
             </ListItem>
+
+            {/* Radio Group */}
+            <ListItem>
+                <ListItemButton href="./components/radio">Radio Group</ListItemButton>
+            </ListItem>
         </List>
     </div>)
 }

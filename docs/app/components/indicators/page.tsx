@@ -26,6 +26,11 @@ export default function Page() : ReactElement {
                     <CodeBlock>{"LinearProgress()"}</CodeBlock>
                 </Box>
             </Box>
+            <Box>
+                <CodeBlock>{
+                    'LinearProgress(color = "primary", background = "background", style = DefaultStyles.Indicator.linear)'
+                }</CodeBlock>
+            </Box>
         </Box>
     </div>)
 }
