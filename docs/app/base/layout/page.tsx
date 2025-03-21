@@ -12,10 +12,16 @@ export default function Page() : ReactElement {
                 use <code>Android UI</code> but it is the recommended way
                 of using this library.
             </Typography>
+            <Typography marginTop={"25px"}>
+                <code>AUI</code> comes with some default pages for getting started.
+                The default starter page <code>StarterPage()</code> and the fallback
+                page <code>Error()</code> exists in the library but can be changed
+                for custom pages.
+            </Typography>
 
 
             {/* Simple RootLayout */}
-            <Box>
+            <Box marginTop={"75px"}>
                 <Typography variant="h5">Creating a simple RootLayout</Typography>
                 <Typography>
                     Android UI comes with the function of using one <code>Activity</code> to
@@ -38,10 +44,12 @@ export default function Page() : ReactElement {
                 <CodeBlock>{
                 "val metadata = Meta(\n" +
                     "\tfullscreen = false,\n" +
-                    "\tedgeToEdge = true,\n" +
+                    "\tedgeToEdge = true,\n\n" +
+
                     "\trouting = HashMap<String, @Composable () -> Unit>().apply {\n" +
                     "\t\tput('/') { StarterPage() }\n" +
-                    "\t},\n" +
+                    "\t},\n\n" +
+
                     "\tstart = { StarterPage() },\n" +
                     "\tfallback = { Error() }\n" +
                 ")\n"
@@ -54,7 +62,7 @@ export default function Page() : ReactElement {
             </Box>
 
             {/* RootLayout Setup */}
-            <Box>
+            <Box marginTop={"75px"}>
                 <Typography variant="h5">Creating an application Layout</Typography>
                 <Typography>
                     The <code>RootLayout</code> has two abstract methods to help
