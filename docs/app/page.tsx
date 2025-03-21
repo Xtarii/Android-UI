@@ -31,6 +31,9 @@ export default function Home() {
                     <CodeBlock>{
                         "class App : RootLayout() {\n" +
                             "\toverride fun onSetup() {}\n\n\n" +
+
+
+
                             "\t@Composable\n" +
                             "\toverride fun Layout(children: @Composable () -> Unit) {\n" +
                                 "\t\tThemeProvider {\n" +
