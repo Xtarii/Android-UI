@@ -9,5 +9,5 @@ to set a **Root Layout** for the application that all the pages will use.
 
 
 
-# DOCS
+### DOCS
 See the **AUI** documentation at [docs](https://xtarii.github.io/Android-UI/)
