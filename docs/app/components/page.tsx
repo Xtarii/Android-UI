@@ -20,6 +20,11 @@ export default function Page() : ReactElement {
             <ListItem>
                 <ListItemButton href="./components/radio">Radio Group</ListItemButton>
             </ListItem>
+
+            {/* Async */}
+            <ListItem>
+                <ListItemButton href="./components/async">Suspended</ListItemButton>
+            </ListItem>
         </List>
     </div>)
 }
