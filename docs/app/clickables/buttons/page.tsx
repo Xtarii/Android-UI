@@ -8,7 +8,7 @@ export default function Page() : ReactElement {
         <Container fixed>
             <Typography variant="h4">Buttons</Typography>
             <Typography>
-                The Button component is located at <code>org.android.ui.clickable</code>
+                The Button component is located at <code>org.android.aui.clickable.Button</code>
             </Typography>
 
             {/* Main */}

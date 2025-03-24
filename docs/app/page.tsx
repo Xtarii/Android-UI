@@ -9,6 +9,9 @@ export default function Home() {
                 <Typography variant="h3">Getting Started</Typography>
                 <Box sx={{ marginTop: "25px" }}>
                     <Typography variant="h4">Adding <code>AUI</code> to a project</Typography>
+                    <Typography>
+                        Android UI components are located under <code>org.android.aui</code>
+                    </Typography>
 
                     <Typography marginTop={"25px"}>Gradle : build.gradle.kts</Typography>
                     <CodeBlock language="kotlin">{
@@ -18,7 +21,7 @@ export default function Home() {
                     }</CodeBlock>
                     <Typography>
                         Include <code>Jitpack</code> in the settings
-                        gradle file, <Link href={"https://docs.jitpack.io/"}>Jitpack Docs</Link>
+                        gradle file, <code><Link href={"https://docs.jitpack.io/"} id="link">Jitpack Docs</Link></code>
                     </Typography>
                 </Box>
 
