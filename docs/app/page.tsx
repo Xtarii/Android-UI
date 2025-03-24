@@ -45,6 +45,9 @@ export default function Home() {
             </Box>
         </main>
         <footer>
+            <Typography>
+                Some application made with this framework - <code>Private Message Application</code>
+            </Typography>
         </footer>
     </div>)
 }
