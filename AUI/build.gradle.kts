@@ -5,6 +5,20 @@ plugins {
     id("maven-publish")
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "io.github.xtarii"
+                artifactId = "aui"
+                version = "1.0.0"
+
+                from(components["release"])
+            }
+        }
+    }
+}
+
 android {
     namespace = "org.android.aui"
     compileSdk = 35
