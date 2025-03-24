@@ -9,23 +9,16 @@ export default function Home() {
                 <Typography variant="h3">Getting Started</Typography>
                 <Box sx={{ marginTop: "25px" }}>
                     <Typography variant="h4">Adding <code>AUI</code> to a project</Typography>
-                    <Typography>Maven</Typography>
-                    <CodeBlock language="html">{
-                        "<dependency>\n" +
-                            "\t<groupId>org.android.ui</groupId>\n" +
-                            "\t<artifactId>aui</artifactId>\n" +
-                            "\t<version>1.0.1a4</version>\n" +
-                        "</dependency>\n"
-                    }</CodeBlock>
 
                     <Typography marginTop={"25px"}>Gradle : build.gradle.kts</Typography>
                     <CodeBlock language="kotlin">{
                         "dependencies {\n" +
-                            "\timplementation('com.github.xtarii:aui:1.0.1a4')\n" +
+                            '\timplementation("com.github.Xtarii:Android-UI:first")\n' +
                         "}\n"
                     }</CodeBlock>
                     <Typography>
-                        Include <code>Jitpack</code> in the settings gradle file
+                        Include <code>Jitpack</code> in the settings
+                        gradle file, <Link href={"https://docs.jitpack.io/"}>Jitpack Docs</Link>
                     </Typography>
                 </Box>
 
