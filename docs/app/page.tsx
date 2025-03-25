@@ -16,7 +16,7 @@ export default function Home() {
                     <Typography marginTop={"25px"}>Gradle : build.gradle.kts</Typography>
                     <CodeBlock language="kotlin">{
                         "dependencies {\n" +
-                            '\timplementation("com.github.Xtarii:Android-UI:first")\n' +
+                            '\timplementation("com.github.Xtarii:Android-UI:1.0.1")\n' +
                         "}\n"
                     }</CodeBlock>
                     <Typography>
