@@ -11,3 +11,7 @@ to set a **Root Layout** for the application that all the pages will use.
 
 ### DOCS
 See the **AUI** documentation at [docs](https://xtarii.github.io/Android-UI/)
+
+
+### Jitpack
+[![](https://jitpack.io/v/Xtarii/Android-UI.svg)](https://jitpack.io/#Xtarii/Android-UI)
