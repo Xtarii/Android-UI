@@ -14,4 +14,4 @@ See the **AUI** documentation at [docs](https://xtarii.github.io/Android-UI/)
 
 
 ### Jitpack
-[![](https://jitpack.io/v/Xtarii/Android-UI.svg)](https://jitpack.io/#Xtarii/Android-UI)
+Add AUI to your project with Jitpack - [![](https://jitpack.io/v/Xtarii/Android-UI.svg)](https://jitpack.io/#Xtarii/Android-UI)
