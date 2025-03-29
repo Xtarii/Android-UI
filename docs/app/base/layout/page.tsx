@@ -87,6 +87,23 @@ export default function Page() : ReactElement {
                         "\t}\n" +
                     "}\n"
                 }</CodeBlock>
+
+                <Typography marginTop={"25px"}>
+                    When using <code>RootLayout</code> an instance for <code>LocalStorage</code> is
+                    automatically created.
+
+                    Normally with android it is required to have a <code>context</code> but thanks
+                    to <code>RootLayout</code> the LocalStorage is initialized with a context and
+                    therefore does not need one later on.
+                </Typography>
+                <CodeBlock>{
+                    'LocalStorage.put("<name>", "<data>") // Store data\n' +
+                    'LocalStorage.get("<name>") // Returns Data or null\n'
+                }</CodeBlock>
+                <Typography>
+                    LocalStorage can be accessed from anywhere and does <code>not</code> need its
+                    calling parent to be <code>Composable</code> to work.
+                </Typography>
             </Box>
         </Box>
     </div>)

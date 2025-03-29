@@ -14,6 +14,7 @@ import org.android.aui.backend.meta.Meta
 import org.android.aui.backend.router.ActivityProvider
 import org.android.aui.backend.router.RouterProvider
 import org.android.aui.backend.router.useRouter
+import org.android.aui.backend.storage.LocalStorage
 
 /**
  * Abstract Root Layout
@@ -24,6 +25,8 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
         super.onCreate(savedInstanceState)
         if(metadata.fullscreen) hideSystemUI() // Hides Navigation UI
         val route: String? = intent.getStringExtra("route")
+
+        LocalStorage.init(this) // Creates local storage for this activity
 
         onSetup() // Setup
         setContent { // Layout Content
