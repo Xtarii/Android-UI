@@ -1,4 +1,4 @@
-# Android UI Package
+# Android UI Package [![](https://jitpack.io/v/Xtarii/Android-UI.svg)](https://jitpack.io/#Xtarii/Android-UI)
 This is a package inspired by Material UI and React Structure for Android.
 Android UI provides some pre-configured components for making android app
 development faster.
@@ -11,8 +11,3 @@ to set a **Root Layout** for the application that all the pages will use.
 
 ### DOCS
 See the **AUI** documentation at [docs](https://xtarii.github.io/Android-UI/)
-
-
-### Jitpack
-Add **AUI** to your project with Jitpack, see more:
-[![](https://jitpack.io/v/Xtarii/Android-UI.svg)](https://jitpack.io/#Xtarii/Android-UI)
