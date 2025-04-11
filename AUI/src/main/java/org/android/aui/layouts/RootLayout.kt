@@ -24,7 +24,7 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
         if(metadata.edgeToEdge) enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         if(metadata.fullscreen) hideSystemUI() // Hides Navigation UI
-        val route: String? = intent.getStringExtra("route")
+        val route: String? = getRoute()
 
         LocalStorage.init(this) // Creates local storage for this activity
 
@@ -99,5 +99,16 @@ abstract class RootLayout(private val metadata: Meta = Meta()) : ComponentActivi
     override fun onPause() {
         super.onPause()
         ActivityEventsManager.broadcast(ActivityEvent.PAUSE, Unit)
+    }
+
+
+
+    /**
+     * Gets Activity Route Parameter
+     */
+    private fun getRoute() : String? {
+        val uri = intent.data?.getQueryParameter("route")
+        val extra = intent.getStringExtra("route")
+        return uri ?: extra
     }
 }
