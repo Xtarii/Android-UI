@@ -45,7 +45,7 @@ fun Typography(text: String = "", type: TextType = TextType.PARAGRAPH, color: St
 
 
     Box(modifier = Modifier.padding(style.margin)) {
-        Text(text, fontSize = (type.value * style.text.textSize).sp, fontFamily = style.text.fontFamily, color = textColor,
+        Text(text, fontSize = (type.value * style.text.textSize).sp, fontFamily = style.text.fontFamily, fontWeight = style.text.fontWeight, color = textColor,
             modifier = Modifier.drawBehind {
                 if(style.underline) drawLine(
                     color = textColor,

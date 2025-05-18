@@ -1,6 +1,7 @@
 package org.android.aui.styles.text
 
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 
 /**
@@ -16,6 +17,11 @@ data class TextStyle(
      * Font Family
      */
     val fontFamily: FontFamily = FontFamily.Default,
+
+    /**
+     * Font Weight
+     */
+    val fontWeight: FontWeight = FontWeight.Normal,
 
     /**
      * Text Multiline
